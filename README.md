@@ -15,7 +15,7 @@ Required parts:
 
 ## Problem
 
-My entertainment setup consistsf of a [Nebula Solar Projector](https://us.seenebula.com/products/solar-portable-d2131) (now discontinued) mounted to the ceiling with a Firestick 4K Max plugged into it. Audio comes from a Echo + sub. It generally works pretty well!
+My entertainment setup consists of a [Nebula Solar Projector](https://us.seenebula.com/products/solar-portable-d2131) (now discontinued) mounted to the ceiling with a Firestick 4K Max plugged into it. Audio comes from a Echo + sub. It generally works pretty well!
 
 The problem is that I would like to control the entire setup solely with the Firestick remote control. It mostly works, except that the projector does not turn off when I hit the Power button. The Firestick tries to send HDMI CEC commands to accomplish this, and it worked on a past projector, but this one is stubborn.
 
