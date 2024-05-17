@@ -32,14 +32,14 @@ Well, [some Arduinos can act as USB HID devices](https://www.arduino.cc/referenc
 
 The Arduino keyboard library has a function that seemed like what I needed: `Keyboard.press()`. It takes a `char` as input and sends that over USB to the host device. You can use this to get up to [all sorts of antics](https://projecthub.arduino.cc/danionescu/arduino-keyboard-exploit-demo-hid-and-prevention-edf6df), but I just wanted it to send _one key code_. What's the code for "Turn Off," though?
 
+#### Reading keyboard codes
+
 Figuring out what code the keyboard I had was sending was a pretty big pain. I couldn't find a Mac application that would dump raw keyboard codes. The built in [Keyboard Viewer](https://support.apple.com/guide/mac-help/use-the-keyboard-viewer-on-mac-mchlp1015/mac) didn't seem to help, as it didn't give any indication that it knew about my magic Turn Off button, nor did it give me any idea of what codes the buttons were sending.
 
 I ended up setting up a RaspberryPi running Linux (RaspbianOS) so that I could use [a Python script](https://github.com/akostibas/projector-off-o-matic/blob/main/experiments/hid-dump.py) that I found floating on the internet. Given an input device, it dumps information about what it receives from it. This ultimately worked, but there were some gotchas.
 
-#### Finding the right input device
 They regular "101-key keyboard" keys would show up when I logged `/dev/input/event0`, but it didn't register the Turn Off button, or other system keys like Volume Up / Down. Turns out the keyboard registers a few devices, and the Turn Off button events came over `/dev/input/event2`.
 
-#### Finding the right key code
 The event codes that this Python script were sending me didn't match the codes that the Ardiuno's `Keyboard.press()` function used. That is, the value for "A" sent by `Keyboard.press()` doesn't match the value that shows up in the event viewer.
 
 Ultimately I just brute-forced it, and programmed an Arduino to cycle through 1-255 and send that to `Keyboard.press()`, and watched what I saw in the event viewer. Eventually I found the event that matched the code from the other keyboard! Spoiler: it's `238`.
