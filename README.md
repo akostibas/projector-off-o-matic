@@ -19,6 +19,8 @@ My entertainment setup consists of a [Nebula Solar Projector](https://us.seenebu
 
 The problem is that I would like to control the entire setup solely with the Firestick remote control. It mostly works, except that the projector does not turn off when I hit the Power button. The Firestick tries to send HDMI CEC commands to accomplish this, and it worked on a past projector, but this one is stubborn.
 
+Because of this, I have to keep the Nebula projector remote control around for the sole purpose of turning it off when we're done watching something. Unacceptable! I should be able to solve this with technology...
+
 ## Figuring out how to power off the projector
 
 ### The setup
